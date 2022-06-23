@@ -7,10 +7,30 @@ from .models import (Author,
                      BookInstance)
 
 
+class BookInstanceInline(admin.TabularInline):
+    model = BookInstance
+    extra = 0 # išjungia placeholder'ius
+    can_delete = False
+    readonly_fields = ('unique_id',)
+
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'isbn', 'display_genre')
+    inlines = [BookInstanceInline]
+
+class BookInstanceAdmin(admin.ModelAdmin):
+    list_display = ('unique_id', 'book', 'due_back', 'status')
+    list_filter = ('book', 'status')
+
+    fieldsets = (
+        ('General', {'fields': ('unique_id', 'book')}),
+        ('Availability', {'fields': ('status', 'due_back')}),
+    )
+
+
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ('last_name', 'first_name', 'display_books')
 
 admin.site.register(Book, BookAdmin)
-admin.site.register(BookInstance)
-admin.site.register(Author)
+admin.site.register(BookInstance, BookInstanceAdmin)
+admin.site.register(Author, AuthorAdmin)
 admin.site.register(Genre)
