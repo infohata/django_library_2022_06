@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-
+from django.urls import reverse
 
 # Create your models here.
 class Genre(models.Model):
@@ -27,6 +27,9 @@ class Book(models.Model):
 
     display_genre.short_description = 'Genre'
 
+    # def get_absolute_url(self):
+    #     """Nurodo konkretaus aprašymo galinį adresą"""
+    #     return reverse('book-detail', args=[str(self.id)])
 
     def __str__(self):
         return self.title

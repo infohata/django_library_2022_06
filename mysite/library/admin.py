@@ -19,7 +19,9 @@ class BookAdmin(admin.ModelAdmin):
 
 class BookInstanceAdmin(admin.ModelAdmin):
     list_display = ('unique_id', 'book', 'due_back', 'status')
+    search_fields = ('unique_id', 'book__title')
     list_filter = ('book', 'status')
+    list_editable = ('due_back', 'status')
 
     fieldsets = (
         ('General', {'fields': ('unique_id', 'book')}),
