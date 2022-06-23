@@ -9,6 +9,10 @@ class Genre(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'Genre'
+        verbose_name_plural = 'Genres'
+
 
 class Book(models.Model):
     title = models.CharField(verbose_name="Pavadinimas", max_length=200)
@@ -18,8 +22,18 @@ class Book(models.Model):
                             help_text='13 Simbolių <a href="https://www.isbn-international.org/content/what-isbn">ISBN kodas</a>')
     genre = models.ManyToManyField('Genre', help_text='Išrinkite žanrą(us) šiai knygai')
 
+    def display_genre(self):
+        return ', '.join(genre.name for genre in self.genre.all())
+
+    display_genre.short_description = 'Genre'
+
+
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Book'
+        verbose_name_plural = 'Books'
 
 
 class BookInstance(models.Model):
@@ -39,6 +53,10 @@ class BookInstance(models.Model):
     def __str__(self):
         return f'{self.id} ({self.book.title})'
 
+    class Meta:
+        verbose_name = 'Book instance'
+        verbose_name_plural = 'Book instances'
+
 
 class Author(models.Model):
     first_name = models.CharField('Vardas', max_length=100)
@@ -46,3 +64,7 @@ class Author(models.Model):
 
     def __str__(self):
         return f'{self.last_name} {self.first_name}'
+
+    class Meta:
+        verbose_name = 'Author'
+        verbose_name_plural = 'Authors'

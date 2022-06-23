@@ -6,7 +6,11 @@ from .models import (Author,
                      Book,
                      BookInstance)
 
-admin.site.register(Book)
+
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'isbn', 'display_genre')
+
+admin.site.register(Book, BookAdmin)
 admin.site.register(BookInstance)
 admin.site.register(Author)
 admin.site.register(Genre)
