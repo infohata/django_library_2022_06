@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import (Book,
                      BookInstance,
                      Author)
@@ -25,3 +25,8 @@ def authors(request):
         "authors": my_authors,
     }
     return render(request, 'authors.html', context=my_context)
+
+def author(request, author_id):
+    single_author = get_object_or_404(Author, pk=author_id)
+    return render(request, 'author.html', context={"author": single_author})
+
