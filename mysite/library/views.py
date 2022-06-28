@@ -17,3 +17,11 @@ def index(request):
         'num_authors': num_authors,
     }
     return render(request, 'index.html', context=context)
+
+
+def authors(request):
+    my_authors = Author.objects.all()
+    my_context = {
+        "authors": my_authors,
+    }
+    return render(request, 'authors.html', context=my_context)
