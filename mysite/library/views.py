@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import (Book,
                      BookInstance,
                      Author)
+from django.views import generic
 
 
 def index(request):
@@ -26,7 +27,19 @@ def authors(request):
     }
     return render(request, 'authors.html', context=my_context)
 
+
 def author(request, author_id):
     single_author = get_object_or_404(Author, pk=author_id)
     return render(request, 'author.html', context={"author": single_author})
 
+
+class BookListView(generic.ListView):
+    model = Book
+    template_name = 'book_list.html'
+    context_object_name = 'books'
+
+
+class BookDetailView(generic.DetailView):
+    model = Book
+    template_name = 'book.html'
+    context_object_name = 'book'
