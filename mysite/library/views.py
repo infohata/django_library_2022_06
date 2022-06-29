@@ -52,7 +52,7 @@ class BookListView(generic.ListView):
     model = Book
     template_name = 'book_list.html'
     context_object_name = 'books'
-    paginate_by = 1
+    paginate_by = 3
 
 
 class BookDetailView(generic.DetailView):

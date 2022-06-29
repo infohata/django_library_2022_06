@@ -3,6 +3,7 @@
 {% block title %}Book{% endblock %}
 
 {% block content %}
+<img src="{{ book.cover.url }}" style="margin-bottom: 20px;">
 <h2>{{ book.title }} {{ book.author }} ({{ book.isbn }})</h2>
 <p>{{ book.summary }}</p>
 <p>{{ book.display_genre }}</p>
