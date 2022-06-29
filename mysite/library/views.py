@@ -3,7 +3,7 @@ from .models import (Book,
                      BookInstance,
                      Author)
 from django.views import generic
-
+from django.core.paginator import Paginator
 
 def index(request):
     num_books = Book.objects.all().count()
@@ -21,9 +21,11 @@ def index(request):
 
 
 def authors(request):
-    my_authors = Author.objects.all()
+    paginator = Paginator(Author.objects.all(), 1)
+    page_number = request.GET.get('page')
+    paged_authors = paginator.get_page(page_number)
     my_context = {
-        "authors": my_authors,
+        "authors": paged_authors,
     }
     return render(request, 'authors.html', context=my_context)
 
@@ -37,6 +39,7 @@ class BookListView(generic.ListView):
     model = Book
     template_name = 'book_list.html'
     context_object_name = 'books'
+    paginate_by = 1
 
 
 class BookDetailView(generic.DetailView):
