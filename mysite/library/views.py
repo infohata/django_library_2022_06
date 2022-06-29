@@ -4,6 +4,8 @@ from .models import (Book,
                      Author)
 from django.views import generic
 from django.core.paginator import Paginator
+from django.db.models import Q
+
 
 def index(request):
     num_books = Book.objects.all().count()
@@ -33,6 +35,17 @@ def authors(request):
 def author(request, author_id):
     single_author = get_object_or_404(Author, pk=author_id)
     return render(request, 'author.html', context={"author": single_author})
+
+
+def search(request):
+    query = request.GET.get('query')
+    search_results = Book.objects.filter(Q(title__icontains=query) | Q(summary__icontains=query))
+    context = {
+        "query": query,
+        "books": search_results,
+    }
+    return render(request, "results.html", context=context)
+
 
 
 class BookListView(generic.ListView):
