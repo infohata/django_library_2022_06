@@ -27,7 +27,7 @@ def index(request):
 
 
 def authors(request):
-    paginator = Paginator(Author.objects.all(), 1)
+    paginator = Paginator(Author.objects.all(), 3)
     page_number = request.GET.get('page')
     paged_authors = paginator.get_page(page_number)
     my_context = {

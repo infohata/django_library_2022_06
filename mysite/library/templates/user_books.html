@@ -4,10 +4,10 @@
 
 {% block content %}
 <h1>My books:</h1>
-{% for book in books %}
-<p><strong>ID: </strong>{{ book.unique_id }}</p>
-<p><strong>Book: </strong>{{ book.book.author }} - {{ book.book.title }}</p>
-<p><strong>Due Back: </strong><a class="{% if book.is_overdue %}text-danger{% endif %}">{{ book.due_back }}</a></p>
+{% for bookinst in books %}
+<p><strong>ID: </strong>{{ bookinst.unique_id }}</p>
+<p><strong>Book: </strong><a href="{% url 'book' bookinst.book.id %}">{{ bookinst.book.author }} - {{ bookinst.book.title }}</a></p>
+<p><strong>Due Back: </strong><a class="{% if book.is_overdue %}text-danger{% endif %}">{{ bookinst.due_back }}</a></p>
 <hr/>
 {% endfor %}
 {% endblock %}

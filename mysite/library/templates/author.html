@@ -4,7 +4,7 @@
 
 {% block content %}
 <h2>{{ author.first_name }} {{ author.last_name }}</h2>
-<p>{{ author.description }}</p>
+<p>{{ author.description | safe }}</p>
 Bibliotekoje turimos knygos:
 {{ author.display_books }}
 {% endblock %}
