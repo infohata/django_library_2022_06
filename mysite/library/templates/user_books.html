@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}User Books{% endblock %}
+
+{% block content %}
+<h1>My books:</h1>
+{% for book in books %}
+<p><strong>ID: </strong>{{ book.unique_id }}</p>
+<p><strong>Book: </strong>{{ book.book.author }} - {{ book.book.title }}</p>
+<p><strong>Due Back: </strong><a class="{% if book.is_overdue %}text-danger{% endif %}">{{ book.due_back }}</a></p>
+<hr/>
+{% endfor %}
+{% endblock %}

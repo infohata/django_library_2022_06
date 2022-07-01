@@ -5,7 +5,7 @@ from .models import (Book,
 from django.views import generic
 from django.core.paginator import Paginator
 from django.db.models import Q
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def index(request):
     num_books = Book.objects.all().count()
@@ -63,3 +63,12 @@ class BookDetailView(generic.DetailView):
     model = Book
     template_name = 'book.html'
     context_object_name = 'book'
+
+
+class UserBookListView(generic.ListView, LoginRequiredMixin):
+    model = BookInstance
+    template_name = 'user_books.html'
+    context_object_name = 'books'
+
+    def get_queryset(self):
+        return BookInstance.objects.filter(reader=self.request.user)
