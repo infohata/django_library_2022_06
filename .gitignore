@@ -1,4 +1,5 @@
 /mysite/db.sqlite3
+/mysite/media/
 /mysite/mysite/secret_settings.py
 /venv/
 **/__pycache__/
