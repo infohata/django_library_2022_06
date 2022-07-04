@@ -7,6 +7,7 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
 def index(request):
     num_books = Book.objects.all().count()
     num_instances = BookInstance.objects.all().count()
@@ -49,7 +50,6 @@ def search(request):
         "books": search_results,
     }
     return render(request, "results.html", context=context)
-
 
 
 class BookListView(generic.ListView):

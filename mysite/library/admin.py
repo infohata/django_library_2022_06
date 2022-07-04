@@ -13,9 +13,11 @@ class BookInstanceInline(admin.TabularInline):
     can_delete = False
     readonly_fields = ('unique_id',)
 
+
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'isbn', 'display_genre')
     inlines = [BookInstanceInline]
+
 
 class BookInstanceAdmin(admin.ModelAdmin):
     list_display = ('unique_id', 'book', 'reader', 'due_back', 'status')
@@ -31,6 +33,7 @@ class BookInstanceAdmin(admin.ModelAdmin):
 
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('last_name', 'first_name', 'display_books')
+
 
 admin.site.register(Book, BookAdmin)
 admin.site.register(BookInstance, BookInstanceAdmin)
