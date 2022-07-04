@@ -109,6 +109,5 @@ class BookReview(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     content = models.TextField('Atsiliepimas', max_length=20000)
 
-
     def __str__(self):
         return '{} {} {}'.format(str(self.book), str(self.reviewer), str(self.date_created))
