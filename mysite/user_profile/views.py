@@ -5,11 +5,18 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.password_validation import validate_password, get_password_validators
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
+from . forms import UserUpdateForm, ProfileUpdateForm
 
 
 @login_required
 def profile(request):
-    return render(request, 'user_profile/profile.html')
+    user_form = UserUpdateForm(instance=request.user)
+    profile_form = ProfileUpdateForm(instance=request.user.profile)
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form,
+    }
+    return render(request, 'user_profile/profile.html', context)
 
 
 @csrf_protect
