@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
-
+from PIL import Image
 
 class Profile(models.Model):
     user = models.OneToOneField(
@@ -17,3 +17,11 @@ class Profile(models.Model):
 
     def __str__(self):
         return '{} profile'.format(str(self.user))
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        picture = Image.open(self.picture.path)
+        if picture.height > 300 or picture.width > 300:
+            output_size = (300, 300)
+            picture.thumbnail(output_size)
+            picture.save(self.picture.path)
