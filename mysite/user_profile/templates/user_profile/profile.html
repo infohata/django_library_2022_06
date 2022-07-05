@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content-section">
+    <div class="media">
+        <img class="img-fluid account-img rounded-circle mr-2" style="max-width: 300px;" 
+        src="{{ user.profile.picture.url }}">
+        <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            {% if user.first_name or user.last_name %}
+                <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
