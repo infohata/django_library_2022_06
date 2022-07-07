@@ -7,6 +7,7 @@
 !/mysite/media/user/profile/default.png
 /mysite/mysite/secret_settings.py
 /venv/
+/venv/**
 **/__pycache__/
-.venv
+.venv/
 *.mo
