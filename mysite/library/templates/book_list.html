@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block title %}Books{% endblock %}
 
 {% block content %}
@@ -25,7 +25,7 @@
       {% endfor %}
     </div>
     {% else %}
-      <p>Bibliotekoje knygų nėra.</p>
+      <p>{%trans 'No books in librarry '%}</p>
     {% endif %}
 
 
@@ -33,16 +33,16 @@
     <span class="step-links">
         {% if page_obj.has_previous %}
             <a href="?page=1">&laquo; pirmas</a>
-            <a href="?page={{ page_obj.previous_page_number }}">atgal</a>
+            <a href="?page={{ page_obj.previous_page_number }}">{% trans "back"%}</a>
         {% endif %}
 
         <span class="current">
-            {{ page_obj.number }} iš {{ page_obj.paginator.num_pages }}
+            {{ page_obj.number }} {{%trans 'from'%}} {{ page_obj.paginator.num_pages }}
         </span>
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">pirmyn</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">paskutinis &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}">{%trans 'forward'%}</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">{%trans 'last'%} &raquo;</a>
         {% endif %}
     </span>
 </div>
