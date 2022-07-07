@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+<html lang="LANGUAGE_CODE">
 <head>
   <title>{% block title %}{% endblock %}</title>
   <meta charset="utf-8">
@@ -58,9 +60,22 @@
             <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
           </li>
         {% endif %}
-        <li>
-          <form action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0">
+        <li class="nav-item">
+          <form class="form-inline" action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0">
               <input name="query" class="form-control" type="text" placeholder="Paieška">
+          </form>
+        </li>
+        <li class="nav-item">
+          <form class="form-inline" action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ redirect_to }}">
+            <select class="form-control" name="language" onchange="this.form.submit()">
+              {% for lang in LANGUAGES %}
+                <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected="selected"{% endif %}>
+                  {{ lang.1 }}
+                </option>
+              {% endfor %}
+            </select>
           </form>
         </li>
       </ul>

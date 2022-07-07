@@ -1,16 +1,17 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}Login{% endblock %}
 
 {% block content %}
 
   {% if form.errors %}
-    <p>Prisijungimo klaida, bandykite dar kartą!</p>
+    <p>{% trans "Login error, please try again!" %}</p>
   {% endif %}
 
   {% if next %}
     {% if user.is_authenticated %}
-      <p>Neturite prieigos prie šios informacijos. Turite prisijungti.</p>
+      <p>{% trans "You do not have access to this information. You must log in" %}</p>
     {% endif %}
   {% endif %}
 
@@ -18,18 +19,18 @@
     {% csrf_token %}
     <table>
       <tr>
-        <td>Vartotojas: </td>
+        <td>{% trans "username"|capfirst %}</td>
         <td>{{ form.username }}</td>
       </tr>
       <tr>
-        <td>Slaptažodis: </td>
+        <td>{% trans "password"|capfirst %}</td>
         <td>{{ form.password }}</td>
       </tr>
     </table>
-    <input type="submit" value="Prisijungti" />
+    <input type="submit" value="{% trans "prisijungti" %}" />
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
 
-  <p><a href="{% url 'password_reset' %}">Pamiršote slaptažodį?</a></p>
+  <p><a href="{% url 'password_reset' %}">{% trans "forgot your password"|capfirst %}</a>?</p>
 
 {% endblock %}
