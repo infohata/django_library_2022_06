@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.contrib.auth import get_user_model
 from datetime import date
 from tinymce.models import HTMLField
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 class Genre(models.Model):

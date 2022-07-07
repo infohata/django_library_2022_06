@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 
 from . import views
 
@@ -10,4 +10,5 @@ urlpatterns = [
     path('books/<int:pk>', views.BookDetailView.as_view(), name='book'),
     path('search/', views.search, name='search'),
     path('user_books/', views.UserBookListView.as_view(), name='user_books'),
+    path('i18n/', include('django.conf.urls.i18n')),
 ]
