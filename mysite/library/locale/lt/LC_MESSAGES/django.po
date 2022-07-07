@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-07 12:04+0300\n"
+"POT-Creation-Date: 2022-07-07 12:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,3 +31,15 @@ msgstr "Skaitytojas"
 #: .\models.py:111
 msgid "Review"
 msgstr "Atsiliepimas"
+
+#: .\library\templates\registration\password_reset_done.html:4
+msgid "We have sent you a password reset link by email"
+msgstr "Slaptažodžio pakeitimo nuorodą išsiuntėme jums el.paštu"
+
+#: .\library\templates\registration\password_reset_complete.html:4
+msgid "password changed"
+msgstr "slaptažodis pakeistas"
+
+#: .\library\templates\registration\password_reset_complete.html:5
+msgid "log in again"
+msgstr "prisijungti dar kartą"
