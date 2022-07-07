@@ -45,9 +45,9 @@ class Book(models.Model):
 
 
 class BookInstance(models.Model):
-    unique_id = models.UUIDField(default=uuid.uuid4, help_text='Unikalus ID knygos kopijai')
-    book = models.ForeignKey(to='Book', verbose_name="Knyga", on_delete=models.SET_NULL, null=True)
-    due_back = models.DateField(verbose_name="Bus prieinama", null=True, blank=True)
+    unique_id = models.UUIDField(default=uuid.uuid4, help_text=_('A unique ID for a copy of the book'))
+    book = models.ForeignKey(to='Book', verbose_name=_('Book'), on_delete=models.SET_NULL, null=True)
+    due_back = models.DateField(verbose_name=_('Will be available'), null=True, blank=True)
     reader = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, blank=True)
 
     @property
@@ -57,13 +57,13 @@ class BookInstance(models.Model):
         return False
 
     LOAN_STATUS = (
-        ('a', 'Administruojama'),
-        ('p', 'Paimta'),
-        ('g', 'Galima paimti'),
-        ('r', 'Rezervuota'),
+        ('a', _('Administered')),
+        ('p', _('Taken')),
+        ('g', _('Can be taken')),
+        ('r', _('Reserved')),
     )
 
-    status = models.CharField(max_length=1, choices=LOAN_STATUS, blank=True, default='a', help_text='Statusas')
+    status = models.CharField(max_length=1, choices=LOAN_STATUS, blank=True, default='a', help_text=_('Status'))
 
     def __str__(self):
         return f'{self.id} ({self.book.title})'
