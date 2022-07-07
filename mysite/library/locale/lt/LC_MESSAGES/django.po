@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-07 12:21+0300\n"
+"POT-Creation-Date: 2022-07-07 12:41+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,37 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
 "11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
 "1 : n % 1 != 0 ? 2: 3);\n"
+#: .\library\models.py:48
+msgid "A unique ID for a copy of the book"
+msgstr "Unikalus ID knygos kopijai"
+
+#: .\library\models.py:49
+msgid "Book"
+msgstr "Knyga"
+
+#: .\library\models.py:50
+msgid "Will be available"
+msgstr "Bus prieinama"
+
+#: .\library\models.py:60
+msgid "Administered"
+msgstr "Administruojama"
+
+#: .\library\models.py:61
+msgid "Taken"
+msgstr "Paimta"
+
+#: .\library\models.py:62
+msgid "Can be taken"
+msgstr "Galima paimti"
+
+#: .\library\models.py:63
+msgid "Reserved"
+msgstr "Rezervuota"
+
+#: .\library\models.py:66
+msgid "Status"
+msgstr "Statusas"
 
 #: .\models.py:98
 msgid "Book"
