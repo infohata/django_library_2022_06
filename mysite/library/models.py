@@ -95,20 +95,20 @@ class Author(models.Model):
 class BookReview(models.Model):
     book = models.ForeignKey(
         Book, 
-        verbose_name="knyga", 
+        verbose_name=_("Book"), 
         on_delete=models.SET_NULL,
         related_name='reviews',
         null=True, blank=True,
     )
     reviewer = models.ForeignKey(
         get_user_model(), 
-        verbose_name="skaitytojas", 
+        verbose_name=_("Reader"), 
         on_delete=models.SET_NULL,
         related_name='reviews',
         null=True, blank=True,
     )
     date_created = models.DateTimeField(auto_now_add=True)
-    content = models.TextField('Atsiliepimas', max_length=20000)
+    content = models.TextField(_('Review'), max_length=20000)
 
     def __str__(self):
         return '{} {} {}'.format(str(self.book), str(self.reviewer), str(self.date_created))
