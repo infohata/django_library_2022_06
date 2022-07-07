@@ -22,7 +22,7 @@ msgstr ""
 
 #: .\library\templates\authors.html:3
 msgid "Authors"
-msgstr ""
+msgstr "Autoriai"
 
 #: .\library\templates\authors.html:6
 msgid "Authors:"
