@@ -5,7 +5,10 @@ from .models import (Book,
 from django.views import generic
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from . import forms
+
 
 def index(request):
     num_books = Book.objects.all().count()
@@ -51,7 +54,6 @@ def search(request):
     return render(request, "results.html", context=context)
 
 
-
 class BookListView(generic.ListView):
     model = Book
     template_name = 'book_list.html'
@@ -59,13 +61,30 @@ class BookListView(generic.ListView):
     paginate_by = 3
 
 
-class BookDetailView(generic.DetailView):
+class BookDetailView(generic.edit.FormMixin, generic.DetailView):
     model = Book
     template_name = 'book.html'
     context_object_name = 'book'
+    form_class = forms.BookReviewForm
+
+    def get_success_url(self):
+        return reverse_lazy('book', kwargs={'pk': self.object.id})
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        return self.form_invalid(form)
+
+    def form_valid(self, form):
+        form.instance.book = self.object
+        form.instance.reviewer = self.request.user
+        form.save()
+        return super().form_valid(form)
 
 
-class UserBookListView(generic.ListView, LoginRequiredMixin):
+class UserBookListView(LoginRequiredMixin, generic.ListView):
     model = BookInstance
     template_name = 'user_books.html'
     context_object_name = 'books'

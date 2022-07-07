@@ -1,7 +1,7 @@
 from django.db import models
 import uuid
 from django.urls import reverse
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from datetime import date
 from tinymce.models import HTMLField
 
@@ -47,7 +47,7 @@ class BookInstance(models.Model):
     unique_id = models.UUIDField(default=uuid.uuid4, help_text='Unikalus ID knygos kopijai')
     book = models.ForeignKey(to='Book', verbose_name="Knyga", on_delete=models.SET_NULL, null=True)
     due_back = models.DateField(verbose_name="Bus prieinama", null=True, blank=True)
-    reader = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    reader = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, blank=True)
 
     @property
     def is_overdue(self):
@@ -89,3 +89,25 @@ class Author(models.Model):
     class Meta:
         verbose_name = 'Author'
         verbose_name_plural = 'Authors'
+
+
+class BookReview(models.Model):
+    book = models.ForeignKey(
+        Book, 
+        verbose_name="knyga", 
+        on_delete=models.SET_NULL,
+        related_name='reviews',
+        null=True, blank=True,
+    )
+    reviewer = models.ForeignKey(
+        get_user_model(), 
+        verbose_name="skaitytojas", 
+        on_delete=models.SET_NULL,
+        related_name='reviews',
+        null=True, blank=True,
+    )
+    date_created = models.DateTimeField(auto_now_add=True)
+    content = models.TextField('Atsiliepimas', max_length=20000)
+
+    def __str__(self):
+        return '{} {} {}'.format(str(self.book), str(self.reviewer), str(self.date_created))

@@ -1,0 +1,119 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-07 12:21+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+
+#: .\user_profile\models.py:10
+msgid "user"
+msgstr "vartotojas"
+
+#: .\user_profile\models.py:14
+msgid "picture"
+msgstr "nuotrauka"
+
+#: .\user_profile\models.py:20
+msgid "{} profile"
+msgstr "{} profilis"
+
+#: .\user_profile\templates\user_profile\profile.html:18
+msgid "profile info"
+msgstr "profilio info"
+
+#: .\user_profile\templates\user_profile\profile.html:23
+msgid "update"
+msgstr "atnaujinti"
+
+#: .\user_profile\templates\user_profile\register.html:4
+#: .\user_profile\templates\user_profile\register.html:28
+msgid "sign up"
+msgstr "registruotis"
+
+#: .\user_profile\templates\user_profile\register.html:8
+msgid "username"
+msgstr "vartotojo vardas"
+
+#: .\user_profile\templates\user_profile\register.html:10
+msgid "up to 150 characters"
+msgstr "iki 150 simbolių"
+
+#: .\user_profile\templates\user_profile\register.html:13
+msgid "e-mail"
+msgstr "el.paštas"
+
+#: .\user_profile\templates\user_profile\register.html:15
+msgid ""
+"Your email will be kept private, we will only send password reset links on "
+"your request."
+msgstr ""
+"Jūsų el.pašto adresas bus saugomas privačiai. Mes jums siųsime "
+"tikslaptažodžio priminimo nuorodas gavę tam jūsų užklausą."
+
+#: .\user_profile\templates\user_profile\register.html:18
+msgid "password"
+msgstr "slaptažodis"
+
+#: .\user_profile\templates\user_profile\register.html:20
+msgid "at least 8 characters, must not be all numbers but include a number."
+msgstr ""
+"minimum 8 simboliai, turi būti bent vienas skaičius, bet ne visi skaičiai"
+
+#: .\user_profile\templates\user_profile\register.html:23
+msgid "repeat password"
+msgstr "pakartokite slaptažodį"
+
+#: .\user_profile\templates\user_profile\register.html:25
+msgid "passwords must match."
+msgstr "slatažodžiai turi sutapti"
+
+#: .\user_profile\templates\user_profile\register.html:31
+msgid "If you have an account already, you can"
+msgstr "Jeigu jau turite paskyrą, galite"
+
+#: .\user_profile\templates\user_profile\register.html:31
+msgid "log in"
+msgstr "prisijungti"
+
+#: .\user_profile\views.py:20
+msgid "User profile was updated successfully."
+msgstr "Vartotojo profilis atnaujintas sėkmingai."
+
+#: .\user_profile\views.py:41
+msgid "Username already exists or was not entered."
+msgstr "Vartotojo vardas jau egzistuoja arba nebuvo įvestas"
+
+#: .\user_profile\views.py:44
+msgid ""
+"User with this email address already exists, or email was entered "
+"incorrectly."
+msgstr ""
+"El.pašto adresas neįvestas, arba vartotojas su įvestu el.pašto adresu jau "
+"egzistuoja."
+
+#: .\user_profile\views.py:47
+msgid "Passwords do not match or were not entered."
+msgstr "Slaptažodžiai nesutampa arba neįvesti."
+
+#: .\user_profile\views.py:52
+msgid "Password error: {}"
+msgstr "slaptažodžio klaida: {}"
+
+#: .\user_profile\views.py:58
+msgid "User {} was created successfully."
+msgstr "Vartotojas {} sukurtas sėkmingai."

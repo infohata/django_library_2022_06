@@ -7,4 +7,31 @@
 <h2>{{ book.title }} {{ book.author }} ({{ book.isbn }})</h2>
 <p>{{ book.summary }}</p>
 <p>{{ book.display_genre }}</p>
+
+<h2>Atsiliepimai</h2>
+{% if book.reviews %}
+    <ul class="list-group">
+    {% for review in book.reviews.all %}
+        <li class="list-group-item">
+            <span class="badge badge-light float-right badge-pill">{{ review.date_created }}</span>
+            <span><img class="mr-2 rounded-circle" style="max-height: 24px;" src="{{ review.reviewer.profile.picture.url }}">{{ review.reviewer }}</span><hr>
+            <p>{{ review.content }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Atsiliepimų nėra, palikite ir būsite pirmas!</p>
+{% endif %}
+
+{% if user.is_authenticated %}
+    <div class="fieldWrapper">
+        <h3>Palikite atsiliepimą</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.content }}<br>
+            <button type="submit" class="btn btn-primary">Išsaugoti</button>
+        </form>
+    </div>
+{% endif %}
+
 {% endblock %}
