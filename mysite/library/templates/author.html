@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block title %}Author{% endblock %}
 
 {% block content %}
-<h2>{{ author.first_name }} {{ author.last_name }}</h2>
+<h2>{{ trans author.first_name}} {{ author.last_name }}</h2>
 <p>{{ author.description | safe }}</p>
-Bibliotekoje turimos knygos:
+In the library avaible books:
 {{ author.display_books }}
 {% endblock %}
