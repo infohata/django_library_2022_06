@@ -8,3 +8,4 @@
 /mysite/mysite/secret_settings.py
 /venv/
 **/__pycache__/
+.venv
