@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('tinymce/', include('tinymce.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),
     path('', include('library.urls')),
     path('profile/', include('user_profile.urls')),
     # path('', RedirectView.as_view(url='library/', permanent=True)),

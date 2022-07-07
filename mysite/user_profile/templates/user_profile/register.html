@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
-<h1>{% trans "Registertraion for a New User" %}</h1>
+<h1>{% trans "sign up"|capfirst %}</h1>
 <form method="post">
     {% csrf_token %}
     <div class="form-group">
