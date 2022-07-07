@@ -21,35 +21,35 @@ msgstr ""
 "1 : n % 1 != 0 ? 2: 3);\n"
 #: .\library\models.py:48
 msgid "A unique ID for a copy of the book"
-msgstr ""
+msgstr "Unikalus ID knygos kopijai"
 
 #: .\library\models.py:49
 msgid "Book"
-msgstr ""
+msgstr "Knyga"
 
 #: .\library\models.py:50
 msgid "Will be available"
-msgstr ""
+msgstr "Bus prieinama"
 
 #: .\library\models.py:60
 msgid "Administered"
-msgstr ""
+msgstr "Administruojama"
 
 #: .\library\models.py:61
 msgid "Taken"
-msgstr ""
+msgstr "Paimta"
 
 #: .\library\models.py:62
 msgid "Can be taken"
-msgstr ""
+msgstr "Galima paimti"
 
 #: .\library\models.py:63
 msgid "Reserved"
-msgstr ""
+msgstr "Rezervuota"
 
 #: .\library\models.py:66
 msgid "Status"
-msgstr ""
+msgstr "Statusas"
 
 #: .\models.py:98
 msgid "Book"
