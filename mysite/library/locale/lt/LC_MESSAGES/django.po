@@ -20,6 +20,18 @@ msgstr ""
 "11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
 "1 : n % 1 != 0 ? 2: 3);\n"
 
+#: .\models.py:98
+msgid "Book"
+msgstr "Knyga"
+
+#: .\models.py:105
+msgid "Reader"
+msgstr "Skaitytojas"
+
+#: .\models.py:111
+msgid "Review"
+msgstr "Atsiliepimas"
+
 #: .\library\templates\registration\password_reset_done.html:4
 msgid "We have sent you a password reset link by email"
 msgstr "Slaptažodžio pakeitimo nuorodą išsiuntėme jums el.paštu"
