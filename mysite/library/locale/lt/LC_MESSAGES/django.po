@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-07 09:37+0000\n"
+"POT-Creation-Date: 2022-07-07 12:41+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,3 +35,59 @@ msgstr "pirmin"
 #: library/templates/book_list.html:45
 msgid "last"
 msgstr "paskutinis"
+
+#: .\library\models.py:48
+msgid "A unique ID for a copy of the book"
+msgstr "Unikalus ID knygos kopijai"
+
+#: .\library\models.py:49
+msgid "Book"
+msgstr "Knyga"
+
+#: .\library\models.py:50
+msgid "Will be available"
+msgstr "Bus prieinama"
+
+#: .\library\models.py:60
+msgid "Administered"
+msgstr "Administruojama"
+
+#: .\library\models.py:61
+msgid "Taken"
+msgstr "Paimta"
+
+#: .\library\models.py:62
+msgid "Can be taken"
+msgstr "Galima paimti"
+
+#: .\library\models.py:63
+msgid "Reserved"
+msgstr "Rezervuota"
+
+#: .\library\models.py:66
+msgid "Status"
+msgstr "Statusas"
+
+#: .\models.py:98
+msgid "Book"
+msgstr "Knyga"
+
+#: .\models.py:105
+msgid "Reader"
+msgstr "Skaitytojas"
+
+#: .\models.py:111
+msgid "Review"
+msgstr "Atsiliepimas"
+
+#: .\library\templates\registration\password_reset_done.html:4
+msgid "We have sent you a password reset link by email"
+msgstr "Slaptažodžio pakeitimo nuorodą išsiuntėme jums el.paštu"
+
+#: .\library\templates\registration\password_reset_complete.html:4
+msgid "password changed"
+msgstr "slaptažodis pakeistas"
+
+#: .\library\templates\registration\password_reset_complete.html:5
+msgid "log in again"
+msgstr "prisijungti dar kartą"
