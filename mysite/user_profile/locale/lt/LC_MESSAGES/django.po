@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-07 15:02+0300\n"
+"POT-Creation-Date: 2022-07-08 08:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,11 +58,12 @@ msgid "e-mail"
 msgstr "el-paštas"
 
 #: .\user_profile\templates\user_profile\register.html:15
-msgid "Your email will be kept private, we will only send password reset links on "
+msgid ""
+"Your email will be kept private, we will only send password reset links on "
 "your request."
 msgstr ""
-"Jūsų el.pašto adresas bus saugomas privačiai. Mes jums siųsime "
-"tik slaptažodžio priminimo nuorodas gavę tam jūsų užklausą."
+"Jūsų el.pašto adresas bus saugomas privačiai. Mes jums siųsime tik "
+"slaptažodžio priminimo nuorodas gavę tam jūsų užklausą."
 
 #: .\user_profile\templates\user_profile\register.html:18
 msgid "password"
@@ -70,7 +71,8 @@ msgstr "slaptažodis"
 
 #: .\user_profile\templates\user_profile\register.html:20
 msgid "at least 8 characters, must not be all numbers but include a number."
-msgstr "minimum 8 simboliai, turi būti bent vienas skaičius, bet ne visi skaičiai"
+msgstr ""
+"minimum 8 simboliai, turi būti bent vienas skaičius, bet ne visi skaičiai"
 
 #: .\user_profile\templates\user_profile\register.html:23
 msgid "repeat password"
