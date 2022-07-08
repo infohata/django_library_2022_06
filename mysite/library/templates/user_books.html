@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block title %}User Books{% endblock %}
-
+{% block title %}{% trans "user books"|capfirst %}{% endblock %}
 {% block content %}
-<h1>My books:</h1>
+<h1>{% trans "my books"|capfirst %}</h1>
 {% for bookinst in books %}
-<p><strong>ID: </strong>{{ bookinst.unique_id }}</p>
-<p><strong>Book: </strong><a href="{% url 'book' bookinst.book.id %}">{{ bookinst.book.author }} - {{ bookinst.book.title }}</a></p>
-<p><strong>Due Back: </strong><a class="{% if book.is_overdue %}text-danger{% endif %}">{{ bookinst.due_back }}</a></p>
+<p><strong>ID: {{ bookinst.unique_id }} </strong></p>
+<p><strong>{% trans "book"|capfirst %}: </strong><a href="{% url 'book' bookinst.book.id %}">{{ bookinst.book.author }} - {{ bookinst.book.title }}</a></p>
+<p><strong>{% trans "due back"|capfirst %}: </strong><a class="{% if book.is_overdue %}text-danger{% endif %}">{{ bookinst.due_back }}</a></p>
+<p><a href="{% url 'user_book' bookinst.id %}" class="btn btn-primary">{% trans "overview" %}</a></p>
 <hr/>
 {% endfor %}
 {% endblock %}
