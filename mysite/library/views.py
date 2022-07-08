@@ -101,7 +101,8 @@ class UserBookDetailView(LoginRequiredMixin, generic.DetailView):
 
 class UserBookCreateView(LoginRequiredMixin, generic.CreateView):
     model = BookInstance
-    fields = ('book', 'due_back', )
+    # fields = ('book', 'due_back', )
+    form_class = forms.BookInstanceForm
     success_url = reverse_lazy('user_books')
     template_name = 'user_book_form.html'
 
@@ -120,7 +121,8 @@ class UserBookCreateView(LoginRequiredMixin, generic.CreateView):
 
 class UserBookUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = BookInstance
-    fields = ('book', 'due_back', )
+    # fields = ('book', 'due_back', )
+    form_class = forms.BookInstanceForm
     success_url = reverse_lazy('user_books')
     template_name = 'user_book_form.html'
 
