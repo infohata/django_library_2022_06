@@ -132,3 +132,13 @@ class UserBookUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.Update
     def test_func(self):
         book_instance = self.get_object()
         return book_instance.reader == self.request.user
+
+
+class UserBookDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = BookInstance
+    success_url = reverse_lazy('user_books')
+    template_name = 'user_book_delete.html'
+
+    def test_func(self):
+        book_instance = self.get_object()
+        return book_instance.reader == self.request.user

@@ -9,5 +9,6 @@
 {% if object.status == 'r' %}
     <a href="{% url 'user_book_update' object.id %}" class="btn btn-success">{% trans "take out"|capfirst %}</a>
 {% endif %}
+    <a href="{% url 'user_book_delete' object.id %}" class="btn btn-outline-danger">{% trans "return or cancel"|capfirst %}</a>
 </p>
 {% endblock content %}

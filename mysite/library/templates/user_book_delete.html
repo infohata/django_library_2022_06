@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+        <legend class="border-bottom">{% trans "returning or canceling the book"|capfirst %} {{ object.title }}</legend>
+        <p>{% trans "Are you sure? Please confirm" %}</p>
+    </fieldset>
+    <div class="form-group">
+        <button type="submit" class="btn btn-danger">{% trans "YES, confirm" %}</button>
+        <a href="{% url 'user_book' object.id %}" class="btn btn-outline-secondary">{% trans "NO, go back" %}</a>
+    </div>
+</form>
+{% endblock content %}
