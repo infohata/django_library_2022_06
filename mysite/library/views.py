@@ -91,3 +91,8 @@ class UserBookListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return BookInstance.objects.filter(reader=self.request.user)
+
+
+class UserBookDetailView(LoginRequiredMixin, generic.DetailView):
+    model = BookInstance
+    template_name = 'user_book.html'

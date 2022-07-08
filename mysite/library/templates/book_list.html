@@ -1,12 +1,9 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n static %}
 {% block title %}Books{% endblock %}
-
 {% block content %}
-
- {% load static %}
-    <h1>Books:</h1></br>
-    {% if books %}
+  <h1>Books:</h1></br>
+  {% if books %}
     <div class="row">
       {% for book in books %}
         <div class="col-md-4 d-flex align-items-stretch">
@@ -24,9 +21,9 @@
         </div>
       {% endfor %}
     </div>
-    {% else %}
-      <p>{%trans 'No books in librarry '%}</p>
-    {% endif %}
+  {% else %}
+    <p>{%trans 'No books in librarry '%}</p>
+  {% endif %}
 
 
   <div class="pagination">
@@ -37,7 +34,7 @@
         {% endif %}
 
         <span class="current">
-            {{ page_obj.number }} {{%trans 'from'%}} {{ page_obj.paginator.num_pages }}
+            {{ page_obj.number }} {%trans 'from'%} {{ page_obj.paginator.num_pages }}
         </span>
 
         {% if page_obj.has_next %}
