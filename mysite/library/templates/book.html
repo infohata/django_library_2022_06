@@ -8,6 +8,10 @@
 <p>{{ book.summary }}</p>
 <p>{{ book.display_genre }}</p>
 
+{% if user.is_authenticated %}
+<p><a class="btn btn-success" href="{% url 'user_book_create' %}?book_id={{ book.id }}">{% trans "take out"|capfirst %}</a></p>
+{% endif %}
+
 <h2>Atsiliepimai</h2>
 {% if book.reviews %}
     <ul class="list-group">

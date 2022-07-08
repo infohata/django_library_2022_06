@@ -3,5 +3,6 @@
 {% block content %}
 <h1>{% trans "my book"|capfirst %} <a href="{% url 'book' object.book.id %}">{{ object.book.title }}</a></h1>
 <p><strong>ID: {{ object.unique_id }} </strong></p>
+<p><strong>{% trans "status"|capfirst %}: {{ object.get_status_display }} </strong></p>
 <p><strong>{% trans "due back"|capfirst %}: </strong><a class="{% if object.is_overdue %}text-danger{% endif %}">{{ object.due_back }}</a></p>
 {% endblock content %}

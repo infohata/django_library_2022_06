@@ -7,6 +7,7 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from datetime import date, timedelta
 from . import forms
 
 
@@ -96,3 +97,22 @@ class UserBookListView(LoginRequiredMixin, generic.ListView):
 class UserBookDetailView(LoginRequiredMixin, generic.DetailView):
     model = BookInstance
     template_name = 'user_book.html'
+
+
+class UserBookCreateView(LoginRequiredMixin, generic.CreateView):
+    model = BookInstance
+    fields = ('book', 'due_back', )
+    success_url = reverse_lazy('user_books')
+    template_name = 'user_book_form.html'
+
+    def form_valid(self, form):
+        form.instance.reader = self.request.user
+        form.instance.status = 'r'
+        return super().form_valid(form)
+
+    def get_initial(self):
+        initial = super().get_initial()
+        if self.request.GET.get('book_id'):
+            initial['book'] = self.request.GET.get('book_id')
+        initial['due_back'] = date.today() + timedelta(days=14)
+        return initial

@@ -6,7 +6,8 @@
 {% for bookinst in books %}
 <p><strong>ID: {{ bookinst.unique_id }} </strong></p>
 <p><strong>{% trans "book"|capfirst %}: </strong><a href="{% url 'book' bookinst.book.id %}">{{ bookinst.book.author }} - {{ bookinst.book.title }}</a></p>
-<p><strong>{% trans "due back"|capfirst %}: </strong><a class="{% if book.is_overdue %}text-danger{% endif %}">{{ bookinst.due_back }}</a></p>
+<p><strong>{% trans "status"|capfirst %}: {{ bookinst.get_status_display }} </strong></p>
+<p><strong>{% trans "due back"|capfirst %}: </strong><a class="{% if bookinst.is_overdue %}text-danger{% endif %}">{{ bookinst.due_back }}</a></p>
 <p><a href="{% url 'user_book' bookinst.id %}" class="btn btn-primary">{% trans "overview" %}</a></p>
 <hr/>
 {% endfor %}
