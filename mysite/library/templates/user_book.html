@@ -5,4 +5,9 @@
 <p><strong>ID: {{ object.unique_id }} </strong></p>
 <p><strong>{% trans "status"|capfirst %}: {{ object.get_status_display }} </strong></p>
 <p><strong>{% trans "due back"|capfirst %}: </strong><a class="{% if object.is_overdue %}text-danger{% endif %}">{{ object.due_back }}</a></p>
+<p>
+{% if object.status == 'r' %}
+    <a href="{% url 'user_book_update' object.id %}" class="btn btn-success">{% trans "take out"|capfirst %}</a>
+{% endif %}
+</p>
 {% endblock content %}

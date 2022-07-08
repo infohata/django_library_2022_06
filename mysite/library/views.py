@@ -6,7 +6,7 @@ from django.views import generic
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from datetime import date, timedelta
 from . import forms
 
@@ -116,3 +116,19 @@ class UserBookCreateView(LoginRequiredMixin, generic.CreateView):
             initial['book'] = self.request.GET.get('book_id')
         initial['due_back'] = date.today() + timedelta(days=14)
         return initial
+
+
+class UserBookUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = BookInstance
+    fields = ('book', 'due_back', )
+    success_url = reverse_lazy('user_books')
+    template_name = 'user_book_form.html'
+
+    def form_valid(self, form):
+        form.instance.reader = self.request.user
+        form.instance.status = 'p'
+        return super().form_valid(form)
+
+    def test_func(self):
+        book_instance = self.get_object()
+        return book_instance.reader == self.request.user

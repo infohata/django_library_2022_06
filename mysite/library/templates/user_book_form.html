@@ -8,7 +8,11 @@
         {{ form|crispy }}
     </fieldset>
     <div class="form-group">
-        <button type="submit" class="btn btn-success">{% trans "take out" %}</button>
+        {% if request.GET.book_id %}
+            <button type="submit" class="btn btn-success">{% trans "reserve"|capfirst %}</button>
+        {% else %}
+            <button type="submit" class="btn btn-success">{% trans "take out"|capfirst %}</button>
+        {% endif %}
     </div>
 </form>
 {% endblock content %}
