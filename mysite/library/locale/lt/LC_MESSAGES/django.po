@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-07 15:02+0300\n"
+"POT-Creation-Date: 2022-07-08 08:42+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,7 +62,7 @@ msgstr "Atsiliepimas"
 
 #: .\library\templates\book_list.html:28
 msgid "No books in librarry "
-msgstr "Nera knygos bibliotekoje"
+msgstr "Nėra knygos bibliotekoje"
 
 #: .\library\templates\book_list.html:36
 msgid "back"
@@ -95,8 +95,8 @@ msgid "password"
 msgstr "slaptažodis"
 
 #: .\library\templates\registration\login.html:30
-msgid "login"
-msgstr "prisijungti"
+msgid "prisijungti"
+msgstr "login"
 
 #: .\library\templates\registration\login.html:34
 #, fuzzy
@@ -109,9 +109,11 @@ msgid "password changed"
 msgstr "slaptažodis pakeistas"
 
 #: .\library\templates\registration\password_reset_complete.html:5
-msgid "login again"
+#, fuzzy
+#| msgid "login again"
+msgid "log in again"
 msgstr "prisijungti dar kartą"
 
-#: .\library\templates\registration\password_reset_done.html:4
+#: .\library\templates\registration\password_reset_done.html:5
 msgid "We have sent you a password reset link by email"
 msgstr "Slaptažodžio pakeitimo nuorodą išsiuntėme jums el.paštu"
